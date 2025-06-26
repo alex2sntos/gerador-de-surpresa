@@ -6,23 +6,30 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.imgur.com/fQnDPBl.jpg') no-repeat center center fixed;
+      background: #7E9EF1;
+      background: linear-gradient(0deg, rgba(126, 158, 241, 1) 33%, rgba(167, 62, 247, 1) 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       background-size: cover;
+      height: 100vh;
       text-align: center;
       padding: 50px;
-      color: #fff;
-      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 35px;
+      text-shadow: 1px 1px 1px #ffd1d1;
     }
     h1 {
-      color: #ffd1dc;
+      color: #ff6699;
       text-shadow: 2px 2px 4px #000;
+      font-weight: 900;
     }
     button {
       background: #ff6699;
       color: white;
       border: none;
-      padding: 15px 30px;
-      font-size: 18px;
+      padding: 25px 20px;
+      font-size: 35px;
       border-radius: 12px;
       cursor: pointer;
       transition: 0.3s;
@@ -33,15 +40,15 @@
     }
     #surpresa, #musicaDia {
       margin-top: 30px;
-      font-size: 22px;
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
+      font-size: 25px;
+      color: #ffffff;
+      text-shadow: 1px 1px 1px #ffd1d1;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
     a {
-      color: #ffd1dc;
+      color: #ffffff;
       text-decoration: underline;
     }
   </style>
@@ -67,7 +74,7 @@
       "Você é o print do meu pensamento constante.",
       "Te ver = renderizar felicidade instantânea.",
       "Tô programando uma surpresa. Spoiler: tem você no final.",
-      "Você virou minha dependência mais importante no package.json da vida.",
+      "Te encontrei e me perdi — no melhor dos sentidos.",
       "Você me bagunça igual loop infinito de pensamentos.",
       "Te olhar é tipo rodar um código e dar certo de primeira.",
       "Meu algoritmo só retorna um resultado: você.",
@@ -84,7 +91,9 @@
       "Você é meu spoiler favorito do futuro.",
       "Hoje eu sonhei com você. Coincidência? Ou bug do subconsciente?",
       "Te mando bom dia só pra ter uma desculpa de te lembrar que gosto de você.",
-      "Essa é só uma das 50 maneiras de te lembrar: você é especial. ❤️"
+      "Essa é só uma das varias maneiras de te lembrar: você é especial. ❤️",
+      "Seu sorriso vale mais que mil palavras.",
+      "O destino acertou em cheio quando cruzou nossos caminhos.",
     ];
 
     const musicas = [
@@ -100,8 +109,8 @@
       },
       {
         nome: "‘Amei Te Ver’ – Tiago Iorc",
-        youtube: "https://www.youtube.com/watch?v=JoF5pZo28yE",
-        spotify: "https://open.spotify.com/track/1hXK4bTgVtKkzsE1S2OEYe"
+        youtube: "https://youtu.be/W62-ZG9tPpI?si=4EhGwxFckKGmbCMC",
+        spotify: "https://open.spotify.com/intl-pt/track/4owo0j5bw45IqiHxsTzcd6?si=6ebce824840a4165"
       },
       {
         nome: "‘Yellow’ – Coldplay",
@@ -109,34 +118,34 @@
         spotify: "https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg"
       },
       {
-        nome: "‘Versos Simples’ – Chimarruts",
-        youtube: "https://www.youtube.com/watch?v=oaRTMJ4xgW4",
-        spotify: "https://open.spotify.com/track/0kgbA1UoN9RzV9Hn6C9E1N"
+        nome: "‘Notificação preferida’ – Zé Neto e Cristiano",
+        youtube: "https://youtu.be/rYKOuKaWEjg?si=_knUu0V-MOfj2hcL",
+        spotify: "https://open.spotify.com/intl-pt/track/3tA0vALUwrzkTgHcm9j6oJ?si=15c20d39b0d444b0"
       },
       {
-        nome: "‘Can’t Help Falling in Love’ – Elvis Presley",
-        youtube: "https://www.youtube.com/watch?v=vGJTaP6anOU",
-        spotify: "https://open.spotify.com/track/44AyOl4qVkzS48vBsbNXaC"
+        nome: "‘5 KM’ – Henrique e Juliano",
+        youtube: "https://youtu.be/Md4WASxp3-s?si=k52C_zUe-Flq8rwN",
+        spotify: "https://open.spotify.com/intl-pt/track/10M1koRXx1iKAR67VW2CxE?si=b3c6970ad7e24f2c"
       },
       {
         nome: "‘Pra Você Guardei o Amor’ – Nando Reis",
         youtube: "https://youtu.be/sB8_zYjxSGg?si=DE2qNt2ITFIQdZvT",
-        spotify: "https://open.spotify.com/track/6rNnxyZ4M3MwRxvWC3yz5s"
+        spotify: "https://open.spotify.com/intl-pt/track/1EQ8sBQ7Abv9DvNBzhXAcv?si=2d447271d76a4874"
       },
       {
-        nome: "‘Lucky’ – Jason Mraz ft. Colbie Caillat",
-        youtube: "https://www.youtube.com/watch?v=acvIVA9-FMQ",
+        nome: "‘Infarto’ – Diego e Victor Hugo",
+        youtube: "https://youtu.be/BJfnGsvOmWM?si=YGl-iVYn1Pnw9Ard",
         spotify: "https://open.spotify.com/track/1rfofaqEpACxVEHIZBJe6W"
       },
       {
-        nome: "‘Você é Linda’ – Caetano Veloso",
-        youtube: "https://www.youtube.com/watch?v=wv8AE7IuYf4",
-        spotify: "https://open.spotify.com/track/4AI8HXz4ka3fEYYyiTLMgE"
+        nome: "‘Aquela pessoa' - Henrique e Juliano",
+        youtube: "https://youtu.be/a5vH9f0lHZg?si=XBR1Rz27wY9JAPk-",
+        spotify: "https://open.spotify.com/intl-pt/track/5asabafNzfAzjUecDvuNES?si=7f84b6340ef24ea4"
       },
       {
-        nome: "‘Amor I Love You’ – Marisa Monte",
-        youtube: "https://www.youtube.com/watch?v=gmOXhIb7fjY",
-        spotify: "https://open.spotify.com/track/4kaD0Ppiw2VPOfpVKAYGsc"
+        nome: "‘Caso indefinido’ – Cristiano Araújo",
+        youtube: "https://youtu.be/YeqgMW1_gA4?si=D_vcOAPrwgLWme0i",
+        spotify: "https://open.spotify.com/intl-pt/track/54TwNxgRorpA9lsStXcv0k?si=0767274ee8a94914"
       }
     ];
 
