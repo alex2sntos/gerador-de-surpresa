@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gerador de Surpresas 💌</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.imgur.com/fQnDPBl.jpg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      padding: 50px;
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+    h1 {
+      color: #ffd1dc;
+      text-shadow: 2px 2px 4px #000;
+    }
+    button {
+      background: #ff6699;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      background: #cc3f75;
+    }
+    #surpresa, #musicaDia {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    a {
+      color: #ffd1dc;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gerador de Surpresas 💖</h1>
+  <p>Cada clique... uma pista do que sinto por você.</p>
+  <button onclick="mostrarSurpresa()">Clique aqui!</button>
+  <div id="surpresa"></div>
+  <div id="musicaDia"></div>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio embutido.
+  </audio>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    const surpresas = [
+      "Você é o print do meu pensamento constante.",
+      "Te ver = renderizar felicidade instantânea.",
+      "Tô programando uma surpresa. Spoiler: tem você no final.",
+      "Você virou minha dependência mais importante no package.json da vida.",
+      "Você me bagunça igual loop infinito de pensamentos.",
+      "Te olhar é tipo rodar um código e dar certo de primeira.",
+      "Meu algoritmo só retorna um resultado: você.",
+      "Preciso de ajuda com um bug: não consigo parar de imaginar nós dois.",
+      "Você foi instanciada no meu coração sem nem pedir permissão.",
+      "Aviso: você acaba de acessar um sistema de paixonites perigosas.",
+      "Se amar fosse crime, eu já estaria preso (e feliz) por sua causa.",
+      "Seus olhos têm mais linhas de código que meu último projeto.",
+      "Cuidado: você ativou uma função secreta do meu coração!",
+      "Te mando um push do meu carinho, aceita?",
+      "Fiz um script só pra te dizer que você é especial. Esse aqui.",
+      "Adivinha quem está pensando em você agora? Dica: começa com 'e' e termina com 'u'.",
+      "Tá na hora de uma confissão: você me inspira como nenhuma linha de código jamais fez.",
+      "Você é meu spoiler favorito do futuro.",
+      "Hoje eu sonhei com você. Coincidência? Ou bug do subconsciente?",
+      "Te mando bom dia só pra ter uma desculpa de te lembrar que gosto de você.",
+      "Essa é só uma das 50 maneiras de te lembrar: você é especial. ❤️"
+    ];
+
+    const musicas = [
+      {
+        nome: "‘Perfect’ – Ed Sheeran",
+        youtube: "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+        spotify: "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v"
+      },
+      {
+        nome: "‘All of Me’ – John Legend",
+        youtube: "https://www.youtube.com/watch?v=450p7goxZqg",
+        spotify: "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"
+      },
+      {
+        nome: "‘Amei Te Ver’ – Tiago Iorc",
+        youtube: "https://www.youtube.com/watch?v=JoF5pZo28yE",
+        spotify: "https://open.spotify.com/track/1hXK4bTgVtKkzsE1S2OEYe"
+      },
+      {
+        nome: "‘Yellow’ – Coldplay",
+        youtube: "https://www.youtube.com/watch?v=yKNxeF4KMsY",
+        spotify: "https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg"
+      },
+      {
+        nome: "‘Versos Simples’ – Chimarruts",
+        youtube: "https://www.youtube.com/watch?v=oaRTMJ4xgW4",
+        spotify: "https://open.spotify.com/track/0kgbA1UoN9RzV9Hn6C9E1N"
+      },
+      {
+        nome: "‘Can’t Help Falling in Love’ – Elvis Presley",
+        youtube: "https://www.youtube.com/watch?v=vGJTaP6anOU",
+        spotify: "https://open.spotify.com/track/44AyOl4qVkzS48vBsbNXaC"
+      },
+      {
+        nome: "‘Pra Você Guardei o Amor’ – Nando Reis",
+        youtube: "https://www.youtube.com/watch?v=Zqjv7DuJDsA",
+        spotify: "https://open.spotify.com/track/6rNnxyZ4M3MwRxvWC3yz5s"
+      },
+      {
+        nome: "‘Lucky’ – Jason Mraz ft. Colbie Caillat",
+        youtube: "https://www.youtube.com/watch?v=acvIVA9-FMQ",
+        spotify: "https://open.spotify.com/track/1rfofaqEpACxVEHIZBJe6W"
+      },
+      {
+        nome: "‘Você é Linda’ – Caetano Veloso",
+        youtube: "https://www.youtube.com/watch?v=wv8AE7IuYf4",
+        spotify: "https://open.spotify.com/track/4AI8HXz4ka3fEYYyiTLMgE"
+      },
+      {
+        nome: "‘Amor I Love You’ – Marisa Monte",
+        youtube: "https://www.youtube.com/watch?v=gmOXhIb7fjY",
+        spotify: "https://open.spotify.com/track/4kaD0Ppiw2VPOfpVKAYGsc"
+      }
+    ];
+
+    function mostrarSurpresa() {
+      const frase = surpresas[Math.floor(Math.random() * surpresas.length)];
+      document.getElementById("surpresa").innerText = frase;
+
+      const musica = musicas[Math.floor(Math.random() * musicas.length)];
+      document.getElementById("musicaDia").innerHTML =
+        "🎧 Música do dia: <b>" + musica.nome + "</b><br>" +
+        `<a href="${musica.youtube}" target="_blank">▶️ Ouvir no YouTube</a> | ` +
+        `<a href="${musica.spotify}" target="_blank">🎵 Ouvir no Spotify</a>`;
+
+      // Confete
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+</body>
+</html>
